@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <title>Academy Cinemas</title>
 </head>
     
@@ -64,19 +64,29 @@
                             <h3>Now Playing:</h3>
                                 <ul class="list-group"> <!--Create a list: "list-group" in bootstrap-->
                                     <li class="list-group-item">
-                                        <a class="nav-link" href="xyz.com">Kong: Skull Island</a> <!--we want the text to be a link: "nav-link"-->
+                                        <!--this button class code was copied from the bootstrap list-group component.
+                                            it changes the background color when you mouseover-->
+                                        <button type="button" class="list-group-item list-group-item-action">
+                                            <a class="nav-link" href="xyz.com">Kong: Skull Island</a> <!--we want the text to be a link: "nav-link"-->
+                                        </button>
                                     </li>
                                     <li class="list-group-item">
-                                        <a class="nav-link" href="xyz.com ">Ghost in the Shell</a>
+                                        
+                                        <button type="button" class="list-group-item list-group-item-action">
+                                            <a class="nav-link" href="xyz.com ">Ghost in the Shell</a>
+                                        </button>
                                     </li>
                                     <li class="list-group-item">
-                                        <a class="nav-link" href="xyz.com">Beauty and the Beast</a>
+                                        
+                                        <button type="button" class="list-group-item list-group-item-action">
+                                            <a class="nav-link" href="xyz.com">Beauty and the Beast</a>
+                                        </button>
                                     </li>
                                 </ul>
                         </div>
                     </div>
                 </div>
-            <!--END OF ABOUT SECTION-->
+        <!--END OF ABOUT SECTION-->
 
         <!--SHOWTIMES-->
         <div class="card-group" id="showtimes">
@@ -141,6 +151,18 @@
             </div>
             <!--/SHOWTIMES-->
 
+        <!--jumbotron heading-->
+        <div class="jumbotron jumbotron-fluid bg-info mt=5 text-center">
+            <div class="container">
+                <h1 class="display-4 hidden-xx-down" style="color:#fff; font-family:roboto; font-weight: 900; text-transform:upercase;">Movie Deals</h1>
+                <p class="lead">Check out our monthly deals...</p>
+                <!--movie deals-->
+                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#register">See our monthly movie deals!</button>
+                <!--end of movie deals-->
+            </div>
+        </div>
+        <!--end of jumbotron heading-->
+
 
         <!--DEALS/CLUB REWARDS-->
         <div id="deals">
@@ -156,6 +178,67 @@
             </div>
         </div>
         <!--END OF DEALS/CLUB REWARDS-->
+
+        <!--sign up form warning: this button does not actually popup the sign up form
+        the sign up form is triggered by the "see our monthly movie deals! button in the jumbotron banner
+        ideally we would want an anchor to that button on top of the popover-dsimiss-->
+        <div class="row">
+            <div class="container text-center col-and-6" id="deals">
+                <div class="container text-center">
+                    <h1 class="display-5 my-4 col-lg-auto text=primary">Stay current on movies!</h1>
+                    <div class="input-group mb-5 input-group-sm">
+                        <input type="text" class="form-control" placeholder="Email">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-secondary btn-info popover-dismiss" data-container="body" data-toggle="popover" data-placement="top" data-content="Submit your email to receive great movie reward deals!.">
+                                Sign up</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end of Sign up form-->
+
+        <!--form modal
+        that's the popup form that shows up when people click on button to register to get deals
+        code was copied from bootstrap modal component and names were adjusted to our DOM -->
+        <div class="modal fade" id="register">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Register to receive movie deals...</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                <form><!--for the form itself, code was copied then adjusted from bootstrap component form group-->
+                    <fieldset class="form-group">
+                        <label for="firstname">First Name</label>
+                        <input type="text" class="form-control" id="firstname" placeholder="First Name..."">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="lastname">Last Name</label>
+                        <input type="text" class="form-control" id="lastname" placeholder="Last Name..."">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" placeholder="Email..."">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="password">Password</label>
+                        <input type="text" class="form-control" id="password" placeholder="Password..."">
+                    </fieldset>                           
+                </form>
+                  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!--end of form modal-->
 
         <!--FOOTER-->
         <div class="container my-5">
@@ -182,8 +265,17 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  </body>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  
+    <script>
+        $('.popover-dismiss').popover({
+            trigger: 'focus'
+        });
+    </script>
+
+
+</body>
 </html>
